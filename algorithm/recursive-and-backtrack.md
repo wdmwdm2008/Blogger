@@ -134,3 +134,62 @@ O(T(n)) = n! + O(n3)
 
 由于 n!>n3，因此，它的上界就是 n!，即：O(T(n)) = n!
 
+
+## Additional (!Important)
+
+回溯法通用框架：
+```Java
+void backtrack (int t)  
+{  
+    if (t>n)   
+        output(x); //已到叶子结点，输出结果  
+    else  
+        // f(n,t),g(n,t)表示当前扩展结点处未搜索过的子树的起始编号和终止编号
+        for (int i=f(n,t);i<=g(n,t);i++) {  
+            x[t]=h(i); // h(i)：表示在当前扩展结点处x[t]的第i个可选值
+            //constraint(t)为true表示在当前扩展结点处x[1:t]的取值满足问题的约束条件
+            //bound(t)为true表示在当前扩展结点处x[1:t]的取值尚未导致目标函数越界
+            if (constraint(t)&&bound(t))  
+                backtrack(t+1);  
+        }  
+}
+```
+
+用回溯法解题时常用到两种典型的解空间树：子集树与排列树
+
+- 第一类解空间树：子集树 
+  1. 当问题是：从n个元素的集合S中找出满足某种性质的子集时,相应的解空间树称为子集树
+  2. 例如n个物品的0/1背包问题，这类子集树通常有2n2n个叶结点，解空间树的结点总数为2n+1−12n+1−1，遍历子集树的算法需Ω(2n2n)计算时间
+  3. 子集树回溯算法框架：
+```Java
+void backtrack (int t) {
+    if (t > n){
+        output(x);
+    }
+    else{
+    // 对当前扩展结点的所有可能取值进行枚举
+        for (int i = 0; i <= 1; i++) {
+            x[t] = i;
+            if (constraint(t) && bound(t)) backtrack(t+1);
+        }
+    }
+}// 执行时，从Backtrack(1)开始
+```
+- 第二类解空间树：排列树 
+  1. 当问题是：确定n个元素满足某种性质的排列时，相应的解空间树称为排列树
+  2. 例如旅行商问题，排列树通常有n！个叶结点，因此遍历排列树需要Ω(n!)计算时间
+  3. 排列树回溯算法框架：
+```Java
+void backtrack (int t) {
+    if (t > n){
+        output(x);
+    }
+    else{
+        for (int i = t; i <= n; i++) {
+            swap(x[t], x[i]);
+            if (constraint(t) && bound(t)) backtrack(t+1);
+            swap(x[t], x[i]);
+        }
+    }
+} // 调用Backtrack(1)前，首先将数组x初始化为单位排列[1,2, ..., n]
+```
