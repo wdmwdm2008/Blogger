@@ -193,3 +193,7 @@ void backtrack (int t) {
     }
 } // 调用Backtrack(1)前，首先将数组x初始化为单位排列[1,2, ..., n]
 ```
+
+
+## Reference
+https://blog.csdn.net/u010089444/article/details/53908003 (important)
