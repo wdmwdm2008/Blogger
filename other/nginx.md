@@ -36,6 +36,10 @@ kill -HUP 1234
 #### 得到外网域名
 ./ngrok  http 80
 
+#### windows得到外网域名
+cd C:\data\ngrok-stable-windows-amd64  
+ngrok  http 5000
+
 ## Reference
 https://www.jianshu.com/p/f5c271d95e39        // 使用docker搭建nginx，flask，gunicorn运行环境
 https://segmentfault.com/a/1190000011827338    //将本地web服务映射到公网访问
