@@ -78,3 +78,18 @@ XGboost分别在不同的线程中并行选择分裂的最大增益。
 （2）gain：使用特征在作为划分属性时loss平均的降低量
 
 （3）cover：使用特征作为划分属性时对样本的覆盖度
+
+
+### 2. word2vec和fasttext区别
+- 模型目的不同：Fasttext是文本分类器，word2vec是为了训练词向量
+- fastText 模型输入一个词的序列（一段文本或者一句话)，输出这个词序列属于不同类别的概率。
+- fastText 模型架构和 Word2Vec 中的 CBOW 模型很类似。不同之处在于，fastText 预测标签，而 CBOW 模型预测中间词
+- fastText 在预测标签时使用了非线性激活函数，但在中间层不使用非线性激活函数。
+- fastText除了词袋模型还添加了N-gram特征，但是需要过滤掉低频的N-gram  
+1. 都可以无监督学习词向量， fastText训练词向量时会考虑subword  
+2. fastText还可以进行有监督学习进行文本分类，其主要特点
+
+结构与CBOW类似，但学习目标是人工标注的分类结果；
+采用hierarchical softmax对输出的分类标签建立哈夫曼树，样本中标签多的类别被分配短的搜寻路径；
+引入N-gram，考虑词序特征；
+引入subword来处理长词，处理未登陆词问题；
