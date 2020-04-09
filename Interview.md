@@ -94,6 +94,9 @@ XGboost分别在不同的线程中并行选择分裂的最大增益。
 引入N-gram，考虑词序特征；
 引入subword来处理长词，处理未登陆词问题；
 
+- https://zhuanlan.zhihu.com/p/57549800
+- https://zhuanlan.zhihu.com/p/56382372
+
 ### 3. lstm已经能做序列标注，为什么还需要crf？
 - 它们的预测机理是不同的。LSTM是用神经网络的超强非线性拟合能力来预测。而CRF是用全局范围内统计归一化的条件状态转移概率矩阵来预测。
 - lstm能学习到观测序列的特征（观测序列之间的关系），而crf能学习到状态序列的特征（状态序列之间的关系）。
@@ -102,3 +105,28 @@ XGboost分别在不同的线程中并行选择分裂的最大增益。
 
 ### 4. attention机制的原理？
 - 原理就是在decoding阶段对input中的信息赋予不同的权重。在nlp中就是针对sequence的每个time step input.
+
+### 5. 介绍一下ELMO
+- ELMO的本质是根据上下文对word embedding进行动态调整。 
+- ELMO包括两个阶段：一是基于language model的预训练。二是在做下游任务时，从预训练模型中提取对应单词网络各层的word embedding作为新特征补充到下游任务重
+- 语言模型训练的任务目标是根据wi的上下文来预测单词wi
+- 第一层是单词特征，第二层是句法特征，第三层是语义特征
+
+- https://zhuanlan.zhihu.com/p/63115885
+
+### 5. nlp中的词向量对比：word2vec/glove/fastText/elmo/GPT/bert
+##### 1）文本表示
+- 基于one-hot、tf-idf、textrank等的bag-of-words；
+- 主题模型：LSA（SVD）、pLSA、LDA；
+- 基于词向量的固定表征：word2vec、fastText、glove
+- 基于词向量的动态表征：elmo、GPT、bert
+
+##### 2）怎么从语言模型理解词向量？怎么理解分布式假设？
+- 分布式假设：相同上下文的词具有相似含义
+- word2vec， fasttext虽然本质是语言模型，但目标并不是语言模型本身，而是词向量。glove则是基于全局语料库，并结合上下文语境构建词向量，结合了word2vec和LSA（SVM）的优点。
+
+##### 3） diffrence between word2vec and glove
+- word2vec是局部语料库训练的，其特征提取是基于滑窗的；而glove的滑窗是为了构建co-occurance matrix，是基于全局语料的，可见glove需要事先统计共现概率；因此，word2vec可以进行在线学习，glove则需要统计固定语料信息。
+- word2vec是无监督学习，同样由于不需要人工标注；glove通常被认为是无监督学习，但实际上glove还是有label的，即共现次数[公式]。
+- word2vec损失函数实质上是带权重的交叉熵，权重固定；glove的损失函数是最小平方损失函数，权重可以做映射变换。
+- 总体来看，glove可以被看作是更换了目标函数和权重函数的全局word2vec。
