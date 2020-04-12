@@ -35,14 +35,21 @@ QA 任务往往是要查找问题 Q 的答案，而答案很可能只是一小�
 ##### 4. 文本摘要
 
 - 抽取式文本摘要
-
+目前有个论文（Fine-tune BERT for Extractive Summarization）是做抽取式文本摘要的。
 - 生成式文本摘要
-
+思路是：符合典型的 Encoder-Decoder 技术框架，只需要用预训练好的 Bert 模型初始化 Encoder 端 Transformer 参数即可
 ##### 5. NLP 中的数据增强
-
+- 论文：Conditional BERT Contextual Augmentation
+- 将 Bert 的双向语言模型，改造成条件语言模型。在输入端附加了一个条件，就是这个训练数据 a 的类标号，假设训练数据的类标号已知，要求根据训练数据 a 的类标号以及上下文，通过 Bert 去预测某些单词。
+- 另外一篇论文 Data Augmentation for BERT Fine-Tuning in Open-Domain Question Answering
+- 如何使用这些增强的训练数据。
+- 有价值的结论是：如果同时增加通过增强产生的正例和负例，有助于增加 Bert 的应用效果；而且 Stage-wise 方式增加增强数据（就是原始训练数据和增强训练数据分多个阶段依次进行训练，而且距原始训练数据越远的应该越先进行 Fine-tuning），效果好于把增强数据和原始数据混合起来单阶段训练的模式。
 ##### 6. 文本分类
+论文：DocBERT: BERT for Document Classification
 
 ##### 7. 序列标注
+论文：Toward Fast and Accurate Neural Chinese Word Segmentation with Multi-Criteria Learning
+
 
 ##### 7. 其它
 
