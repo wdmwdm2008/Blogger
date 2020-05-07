@@ -22,3 +22,7 @@
 
   例如：scp -r test root@192.168.0.101:/var/www/
   把当前目录下的test目录上传到服务器的/var/www/ 目录
+
+
+wget -nH -m http://10.10.1.10:6666/lacpackages_v2.zip
+-nH不建立以IP为名的文件夹, -m是mirror镜像
