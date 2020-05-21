@@ -30,9 +30,9 @@
 5) 句子打乱
 
 ### 实现
-要使用上述所有方法，可以使用名为nlpaug的python库：https://github.com/makcedward/nlpaug。它提供了一个简单且一致的API来应用这些技术。
+要使用上述所有方法，可以使用名为nlpaug的python库：https://github.com/makcedward/nlpaug
 
 ### Reference
-https://mp.weixin.qq.com/s/an1ewfO6pWyR6QmQyFv3Rw
-https://mp.weixin.qq.com/s/aIydEKcDYWNaczMUi07tIQ
-https://mp.weixin.qq.com/s/8pmL2mtanyZ0NqTH_cY8tQ
+https://mp.weixin.qq.com/s/an1ewfO6pWyR6QmQyFv3Rw  
+https://mp.weixin.qq.com/s/aIydEKcDYWNaczMUi07tIQ  
+https://mp.weixin.qq.com/s/8pmL2mtanyZ0NqTH_cY8tQ  
