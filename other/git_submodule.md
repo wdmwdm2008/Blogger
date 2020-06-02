@@ -60,5 +60,50 @@ git rm --cached 子模块名称
 
 完成删除后，提交到仓库即可。
 
+
+### git submodule添加子模块(子仓库)
+在父仓库中添加子仓库
+
+创建父仓库(parent)
+clone地址:: https://gitee.com/xxx/parent.git
+
+创建子仓库(child1)
+clone地址:: https://gitee.com/xxx/child1.git
+
+创建子仓库(child2)
+clone地址:: https://gitee.com/xxx/child2.git
+
+注: 创建仓库的时候勾选README.md,保证不是空仓库
+
+父仓库添加子仓库依赖
+第一步: 克隆父仓库
+$ git clone https://gitee.com/xxx/parent.git
+第二步: 添加子仓库
+$ git submodule add https://gitee.com/xxx/child1.git
+$ git submodule add https://gitee.com/xxx/child2.git
+第三步: push到父仓库
+$ git add .
+$ git commit -m ‘add submodule’
+$ git push
+
+注: 当第二步(添加子仓库)操作完成之后,项目中将生成…gitmodules文件
+文件内容如下:
+[submodule “child1”]
+path = child1
+url = https://gitee.com/xxx/child1.git
+[submodule “child2”]
+path = child2
+url = https://gitee.com/xxx/child2.git
+
+递归克隆父仓库
+$ git clone --recursive https://gitee.com/xxx/parent.git
+
+更新子仓库
+6.1 更新已存在的仓库代码
+git submodule foreach git pull origin master
+6.2 更新新增的子仓库代码
+git submodule update
+
 ### Reference
 https://blog.csdn.net/guotianqing/article/details/82391665
+https://blog.csdn.net/qq_37751454/article/details/103439409
