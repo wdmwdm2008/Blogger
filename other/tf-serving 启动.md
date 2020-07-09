@@ -24,3 +24,6 @@ docker run --runtime=nvidia -p 8501:8501 \
 source=/tmp/tfserving/serving/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_two_gpu,\
 target=/models/half_plus_two \
   -e MODEL_NAME=half_plus_two -t tensorflow/serving:latest-gpu &
+
+curl -d '{"instances": [1.0, 2.0, 5.0]}' \
+  -X POST http://localhost:8501/v1/models/half_plus_two:predict
