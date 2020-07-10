@@ -98,6 +98,10 @@ SERVER_URL = 'http://localhost:8501/v1/models/model1/versions/100001:predict'
 
 tfserving支持模型的Hot Plug，上述容器运行起来之后，如果在宿主机的 /home/jerry/tmp/multiModel/model1/ 文件夹下新增模型文件如100003/，tfserving会自动加载新模型；同样如果移除现有模型，tfserving也会自动卸载模型。
 
+# Question
+1. Error parsing text-format tensorflow.serving.ModelServerConfig: String literals cannot cross line boundaries.
+解决方法：重新写一遍，可能是逗号的问题
+
 # Reference
 https://blog.csdn.net/JerryZhang__/article/details/86516428   多模型tf-serving
 https://blog.csdn.net/u012433049/article/details/89354361  多模型tf-serving
