@@ -103,7 +103,7 @@ tfserving支持模型的Hot Plug，上述容器运行起来之后，如果在宿
 解决方法：重新写一遍，可能是逗号的问题
 
 # Reference
-https://blog.csdn.net/JerryZhang__/article/details/86516428   多模型tf-serving
-https://blog.csdn.net/u012433049/article/details/89354361  多模型tf-serving
-https://www.jianshu.com/p/bd67b40e6b85      制作tf-serving镜像
-https://blog.csdn.net/ljp1919/article/details/101100939  模型部署
+https://blog.csdn.net/JerryZhang__/article/details/86516428   多模型tf-serving  
+https://blog.csdn.net/u012433049/article/details/89354361  多模型tf-serving  
+https://www.jianshu.com/p/bd67b40e6b85      制作tf-serving镜像  
+https://blog.csdn.net/ljp1919/article/details/101100939  模型部署  
