@@ -151,3 +151,4 @@ https://www.jianshu.com/p/bd67b40e6b85      制作tf-serving镜像
 https://blog.csdn.net/ljp1919/article/details/101100939  模型部署  
 https://blog.csdn.net/zong596568821xp/article/details/101421337
 https://zhuanlan.zhihu.com/p/110727286
+https://zhuanlan.zhihu.com/p/64413178制作自己的镜像
