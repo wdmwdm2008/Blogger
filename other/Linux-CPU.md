@@ -17,3 +17,18 @@ cat /proc/cpuinfo | grep "cpu cores" | uniq
  
 查看逻辑CPU的个数
 cat /proc/cpuinfo | grep "processor" | wc -l
+
+
+单独查看内存使用情况的命令：free -m  
+查看内存及cpu使用情况的命令：top  
+也可以安装htop工具，这样更直观，  
+安装命令如下：sudo apt-get install htop  
+安装完后，直接输入命令：htop  
+就可以看到内存或cpu的使用情况了。  
+
+
+
+
+
+### Reference
+https://blog.csdn.net/vola9527/article/details/85237369
