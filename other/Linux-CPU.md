@@ -6,8 +6,8 @@
 
 物理CPU的核是否支持超线程
 
-总核数 = 物理CPU个数 X 每颗物理CPU的核数 
-总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
+总核数 = 物理CPU个数 X 每颗物理CPU的核数  
+总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数  
  
 查看物理CPU个数
 cat /proc/cpuinfo | grep "physical id" | sort | uniq | wc -l
