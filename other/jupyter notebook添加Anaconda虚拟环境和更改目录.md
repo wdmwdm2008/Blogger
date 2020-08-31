@@ -12,6 +12,9 @@ jupyter notebook # 启动jupyter notebook，然后在"新建"中就会有py3这�
 ##The directory to use for notebooks and kernels.  （这是个例子）  
 c.NotebookApp.notebook_dir = 'C:\study\jupyter-notebook'  
 
+### Conda环境移植（克隆）的方法
+在本地的conda里已经有一个AAA的环境，我想创建一个新环境跟它一模一样的叫BBB，那么这样一句就搞定了：  
+conda create -n BBB --clone AAA  
 
 ### Reference
 https://www.cnblogs.com/yinzm/p/7881328.html
