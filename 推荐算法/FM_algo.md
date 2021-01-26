@@ -83,4 +83,4 @@ how?
 掌握原理： 美团的《深入FFM原理与实践》
 FM用于召回： 《推荐系统召回四模型之：全能的FM模型》
 亲手实践：《alphaFM》
-
+https://mp.weixin.qq.com/s/mdxZm5YDcWlmbKmQDEjPgg
