@@ -1,6 +1,28 @@
 # HDFS常用命令
 https://segmentfault.com/a/1190000002672666
 
+
+# Spark 提交到集群
+```
+spark-submit --master yarn \
+    --deploy-mode $1 \
+    --driver-memory 8g \
+    --executor-memory 8g \
+    --num-executors 100 \
+    --conf 'spark.dynamicAllocation.maxExecutors=800' \
+    --conf 'spark.executor.memoryOverhead=50116' \
+    --conf 'spark.speculation=true' \
+    --queue maps_poi \
+    --conf 'spark.speculation.quantile=0.9' \
+    --conf 'spark.speculation.multiplier=1.5' \
+    --archives /home/data/dongming.wang/env_python/py38_dev.tar.gz#ANACONDA\
+    --conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=./ANACONDA/py38_dev/bin/python \
+    --conf spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON=./ANACONDA/py38_dev/bin/python \
+    --conf spark.yarn.appMasterEnv.PYTHONPATH=/home/data/common/anaconda2/envs/py38_dev/lib/python3.8/site-packages/pyspark.zip:/home/data/common/anaconda2/envs/py38_dev/lib/python3.8/site-packages/py4j-0.10.9-src.zip \
+    --conf spark.yarn.appMasterEnv.LTP_MODEL_DIR=./ANACONDA/py38_dev/lib/python3.8/site-packages \
+    $2
+```
+
 # Linux_Hdfs删除空文件.md
 
 ### Linux 中Python删除某根目录下的所有空目录  
