@@ -1,3 +1,8 @@
+# HDFS常用命令
+https://segmentfault.com/a/1190000002672666
+
+# Linux_Hdfs删除空文件.md
+
 ### Linux 中Python删除某根目录下的所有空目录  
 ```
 >>> import os
@@ -46,3 +51,9 @@ if __name__ == "__main__":  # 执行本文件则执行下述代码
     path = raw_input("Please input the files path:")  # 输入路径
     CEF(path)
 ```
+
+
+
+
+### References
+https://segmentfault.com/a/1190000002672666
