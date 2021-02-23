@@ -2,7 +2,8 @@
 https://segmentfault.com/a/1190000002672666
 
 
-# Spark 提交到集群
+# Spark 提交到集群或者客户端
+1. 集群
 ```
 spark-submit --master yarn \
     --deploy-mode $1 \
@@ -22,6 +23,58 @@ spark-submit --master yarn \
     --conf spark.yarn.appMasterEnv.LTP_MODEL_DIR=./ANACONDA/py38_dev/lib/python3.8/site-packages \
     $2
 ```
+
+2. 客户端
+```
+#!/bin/bash
+
+export HDP_VERSION=3.1.4.0-315
+export SPARK_YARN_USER_ENV=PYTHONHASHSEED=0
+export PYSPARK_PYTHON=./py3/bin/python
+export PYSPARK_DRIVER_PYTHON=/home/data/fran.yang/env_python/py36/bin/python
+# export PYTHONHASHSEED=0
+
+
+dict_path="/home/data/fran.yang/RecallClassifier/dict/"
+files=$(ls $dict_path);
+files=${files// / };
+file_arr=($files);
+files_str=""
+for ele in ${file_arr[*]}
+do
+  file_str=${file_str}${dict_path}${ele},
+done
+len=`expr ${#file_str} - 1`
+file_str=`expr substr "$file_str" 1 $len`
+echo $file_str
+
+spark-submit --master yarn \
+           --queue maps_trajectory \
+           --deploy-mode client\
+           --executor-cores 4\
+           --num-executors 500 \
+           --executor-memory 24g \
+           --driver-memory 32g \
+           --conf spark.driver.maxResultSize=10G\
+           --conf spark.speculation=true\
+           --conf spark.speculation.quantile=0.9 \
+           --conf spark.speculation.multiplier=1.5 \
+           --conf spark.sql.hive.convertMetastoreParquet=false \
+           --archives /home/data/fran.yang/env_python/py3.tar/#py3 \
+           --conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=./py3/bin/python \
+           --py-files CleanQuery.py \
+           sample.py
+```
+
+
+# HDFS合并小文件
+1. 将本地的小文件合并，上传到HDFS   
+hadoop fs -appendToFile 1.txt 2.txt hdfs://cdh5/tmp/lxw1234.txt
+3. 下载HDFS的小文件到本地，合并成一个大文件   
+hadoop fs -getmerge hdfs://cdh5/tmp/lxw1234/*.txt local_largefile.txt
+4. 合并HDFS上的小文件  
+hadoop fs -cat hdfs://cdh5/tmp/lxw1234/*.txt | hadoop fs -appendToFile - hdfs://cdh5/tmp/hdfs_largefile.txt
+
 
 # Linux_Hdfs删除空文件.md
 
