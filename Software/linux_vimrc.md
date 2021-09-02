@@ -1,3 +1,4 @@
+```
 syntax on
 set tabstop=4
 set shiftwidth=4
@@ -17,3 +18,4 @@ nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+```
