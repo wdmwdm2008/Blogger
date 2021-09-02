@@ -6,6 +6,12 @@ sudo nohup java -Dhll.app.id=map-textsearch-svc -Xms6G -Xmx6G -XX:+UnlockExperim
 git log --since=2021-05-25 --until=2021-06-01 --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }'
 
 
+### 3. oss链接
+oss.bucketname = ma
+oss.acesskey.id = L
+oss.acesskey.secret = m
+oss.endpoint = oss.aliyuncs.com
+
 
 
 
