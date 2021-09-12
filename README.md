@@ -1,4 +1,4 @@
-# Blogger
+### Blogger
 各种常见问题记录
 
 1. 提升基本能力 e.g. 常用接口实现，接口类定义，sync模块等。 
@@ -8,7 +8,7 @@
 
 
 
-
+### 加拿大公司
 ```
 0. 如果你决定留在温哥华，那么求稳去知名上市公司的本地office，有些工作经验的可以尝试remote。然而个人认为兼顾成长，收入和稳定的选择应该是加入美国中后期startup公司在温哥华的office，或者remote。
 1. 上市公司就不多说了。Amazon主要是招的人多, Microsoft第二。Apple, Facebook, Google, Oracle招的人是真少。其他的不错的有Salesforce/Tableau, Square, Slack, Splunk, Segment(Twilio), Asana, Shopify，Workday，Mastercard基本错不了。Cisco和SAP福利不错。Fortinet, GE digital, Broadcom, Move(Realtor.com)，Arista据说还可以。
@@ -26,3 +26,6 @@
 2. level.fyi可以看加拿大工资
 ```
 
+
+### 系统设计
+Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems 1st Edition
