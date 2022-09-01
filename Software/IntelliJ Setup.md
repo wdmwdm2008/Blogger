@@ -55,6 +55,11 @@ To check the project settings
 
 To check the IDEA preferences
 
+# Mysql rebuild
+To create ddl/dml files once the database of the project is updated.  
+format is yyyymmdd_"jiraTicket"_description
+
+
 
 
 
